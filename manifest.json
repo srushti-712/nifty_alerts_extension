@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Nifty 50 TradingView Alerts",
+  "version": "1.0",
+  "permissions": ["notifications", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.tradingview.com/chart/*"],
+      "js": ["src/content/tv_reader.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/service_worker.js",
+    "type": "module"
+  }
+}
